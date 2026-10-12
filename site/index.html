@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>손금AI</title>
+  <meta name="description" content="손바닥 사진 한 장으로 보는 손금 운세">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- 1. 시작 -->
+    <section class="screen" id="screen-home" data-active>
+      <div class="hero">
+        <svg class="hero-palm" viewBox="0 0 120 150" aria-hidden="true">
+          <path class="palm-outline" d="M30 140 C18 112 14 92 18 70 L20 34 C20 26 30 26 31 34 L33 64 L36 18 C37 9 48 9 48 18 L48 60 L52 12 C53 3 64 3 64 12 L64 60 L69 20 C70 12 80 12 80 21 L78 68 L92 50 C98 43 108 49 103 58 L86 96 C80 118 72 132 66 140 Z"/>
+          <path class="ln ln-heart" d="M92 74 C78 70 62 70 44 80"/>
+          <path class="ln ln-head" d="M28 82 C44 84 62 90 80 100"/>
+          <path class="ln ln-life" d="M30 80 C44 92 46 116 40 138"/>
+          <path class="ln ln-fate" d="M58 138 C58 118 57 100 56 76"/>
+        </svg>
+        <p class="eyebrow">생년월일 없이, 사진 한 장으로</p>
+        <h1>내 손에 적힌 나</h1>
+        <p class="lead">손바닥을 찍으면 성격·연애·재물·커리어·활력 다섯 가지를 풀어 드려요.</p>
+      </div>
+      <button class="btn primary" data-go="capture">손금 보러 가기</button>
+      <ul class="trust">
+        <li>사진은 분석에만 쓰고 저장하지 않아요</li>
+        <li>광고 없이 무료 결과를 볼 수 있어요</li>
+      </ul>
+      <p class="fineprint" data-disclaimer></p>
+    </section>
+
+    <!-- 2. 촬영 -->
+    <section class="screen" id="screen-capture">
+      <header class="bar"><button class="back" data-go="home" aria-label="뒤로">←</button><span>1 / 3 · 손바닥 사진</span></header>
+      <h2>손바닥을 찍어 주세요</h2>
+      <ol class="tips">
+        <li>밝은 곳에서 플래시 없이 찍어요</li>
+        <li>손가락을 살짝 벌리고 손바닥을 쫙 펴요</li>
+        <li>손목까지 화면에 다 들어오게 해요</li>
+      </ol>
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="file" accept="image/*" capture="environment">
+        <img id="preview" alt="" hidden>
+        <span class="dz-empty" id="dz-empty"><strong>사진 찍기 / 고르기</strong><small>주로 쓰는 손을 찍어 주세요</small></span>
+      </label>
+      <p class="quality" id="quality" hidden></p>
+      <button class="btn primary" id="to-check" disabled>다음</button>
+      <button class="btn ghost" id="skip-photo">사진 없이 직접 고를게요</button>
+    </section>
+
+    <!-- 3. 손금 확인 -->
+    <section class="screen" id="screen-check">
+      <header class="bar"><button class="back" data-go="capture" aria-label="뒤로">←</button><span>2 / 3 · 손금 확인</span></header>
+      <div class="check-layout">
+        <aside class="photo-panel">
+          <div class="photo-wrap" id="photo-wrap">
+            <img id="check-photo" alt="내 손바닥 사진">
+            <svg id="overlay" preserveAspectRatio="none" aria-hidden="true"></svg>
+          </div>
+          <div class="legend">
+            <span><i class="sw heart"></i>감정선</span><span><i class="sw head"></i>두뇌선</span>
+            <span><i class="sw life"></i>생명선</span><span><i class="sw fate"></i>운명선</span>
+          </div>
+          <p class="ai-status" id="ai-status" hidden></p>
+        </aside>
+        <div class="questions">
+          <p class="q-intro" id="q-intro">사진을 보며 내 손과 가장 비슷한 것을 골라 주세요.</p>
+          <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+          <form id="q-form"></form>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button class="btn primary" id="to-result" disabled>결과 보기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 결과 -->
+    <section class="screen" id="screen-result">
+      <header class="bar"><button class="back" data-go="check" aria-label="뒤로">←</button><span>3 / 3 · 나의 손금</span></header>
+      <article class="type-card" id="type-card">
+        <p class="eyebrow" id="r-hand"></p>
+        <h2 id="r-nickname"></h2>
+        <ul class="tags" id="r-tags"></ul>
+        <p id="r-summary"></p>
+      </article>
+
+      <div class="card">
+        <h3>성향 지표</h3>
+        <p class="muted small">손금 특징으로 계산한 재미용 지표예요.</p>
+        <div id="r-indices"></div>
+      </div>
+
+      <div id="r-sections"></div>
+
+      <details class="card">
+        <summary><h3>풀이 근거: 내 손금 특징</h3></summary>
+        <ul class="observe" id="r-observe"></ul>
+      </details>
+
+      <div class="card daily">
+        <h3>오늘의 한 마디</h3>
+        <p id="r-daily"></p>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="share">결과 카드 저장하기</button>
+        <button class="btn" id="premium">심화 리포트 보기 · 4,900원</button>
+        <p class="premium-note" id="premium-note" hidden>심화 리포트(보조선·손 유형 상세 풀이)는 출시 버전에서 열려요.</p>
+        <button class="btn ghost" id="restart">다른 손 보기</button>
+      </div>
+      <p class="fineprint" data-disclaimer></p>
+    </section>
+  </main>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

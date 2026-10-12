@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "built_from": "palm_research/palmistry_knowledge.json (크롤링 자료 21건 정리본)",
+    "disclaimer": "손금 풀이는 과학적 근거가 없는 전통 점술을 바탕으로 한 재미용 콘텐츠입니다. 건강·수명·결혼 같은 중요한 결정의 근거로 쓰지 마세요."
+  },
+  "categories": [
+    {"id": "personality", "label": "성격"},
+    {"id": "love", "label": "연애·관계"},
+    {"id": "money", "label": "재물"},
+    {"id": "career", "label": "커리어"},
+    {"id": "energy", "label": "활력"}
+  ],
+  "questions": [
+    {
+      "id": "palm_shape", "group": "손 모양", "title": "손바닥 모양은 어떤가요?",
+      "hint": "손가락을 뺀 손바닥만 보세요. 가로와 세로 길이를 비교합니다.",
+      "options": [
+        {"value": "square", "label": "정사각형에 가까워요"},
+        {"value": "long", "label": "세로로 길쭉해요"}
+      ]
+    },
+    {
+      "id": "finger_length", "group": "손 모양", "title": "손가락 길이는 어떤가요?",
+      "hint": "가운뎃손가락 길이를 손바닥 세로 길이와 비교해 보세요.",
+      "options": [
+        {"value": "short", "label": "손바닥보다 짧아요"},
+        {"value": "long", "label": "손바닥만큼 길어요"}
+      ]
+    },
+    {
+      "id": "simian", "group": "특수 손금", "title": "두뇌선과 감정선이 한 줄로 합쳐져 있나요?",
+      "hint": "손바닥을 가로지르는 굵은 선이 하나뿐이라면 '막쥔손금'입니다. 드문 손금이에요.",
+      "options": [
+        {"value": "no", "label": "아니요, 두 줄이 따로 있어요"},
+        {"value": "yes", "label": "네, 한 줄로 합쳐져 있어요"}
+      ]
+    },
+    {
+      "id": "heart_end", "group": "감정선", "title": "감정선(가장 위쪽 가로선)은 어디서 끝나나요?",
+      "hint": "새끼손가락 아래에서 시작해 검지 쪽으로 뻗는 선입니다.",
+      "skip_if": {"simian": "yes"},
+      "options": [
+        {"value": "index", "label": "검지 아래까지 올라가요"},
+        {"value": "between", "label": "검지와 중지 사이에서 끝나요"},
+        {"value": "middle", "label": "중지 아래에서 끝나요"}
+      ]
+    },
+    {
+      "id": "heart_shape", "group": "감정선", "title": "감정선의 모양은요?",
+      "skip_if": {"simian": "yes"},
+      "options": [
+        {"value": "curved", "label": "위로 부드럽게 휘어요"},
+        {"value": "straight", "label": "거의 일자예요"}
+      ]
+    },
+    {
+      "id": "head_length", "group": "두뇌선", "title": "두뇌선(가운데 가로선)은 얼마나 긴가요?",
+      "hint": "엄지와 검지 사이에서 시작해 손바닥을 가로지르는 선입니다.",
+      "skip_if": {"simian": "yes"},
+      "options": [
+        {"value": "long", "label": "약지 아래를 지나 길게 뻗어요"},
+        {"value": "short", "label": "약지 아래까지 못 가요"}
+      ]
+    },
+    {
+      "id": "head_shape", "group": "두뇌선", "title": "두뇌선의 모양은요?",
+      "skip_if": {"simian": "yes"},
+      "options": [
+        {"value": "straight", "label": "곧게 가로질러요"},
+        {"value": "curved", "label": "아래(손목 쪽)로 휘어져요"}
+      ]
+    },
+    {
+      "id": "head_start", "group": "두뇌선", "title": "두뇌선은 생명선과 붙어서 시작하나요?",
+      "skip_if": {"simian": "yes"},
+      "options": [
+        {"value": "joined", "label": "붙어서 시작해요"},
+        {"value": "separate", "label": "떨어져서 시작해요"}
+      ]
+    },
+    {
+      "id": "head_fork", "group": "두뇌선", "title": "두뇌선 끝이 두 갈래로 갈라지나요?",
+      "skip_if": {"simian": "yes"},
+      "options": [
+        {"value": "no", "label": "아니요"},
+        {"value": "yes", "label": "네, 갈라져요"}
+      ]
+    },
+    {
+      "id": "life_arc", "group": "생명선", "title": "생명선(엄지를 감싸는 곡선)의 폭은요?",
+      "options": [
+        {"value": "wide", "label": "손바닥 가운데까지 크게 휘어요"},
+        {"value": "narrow", "label": "엄지 쪽에 바짝 붙어 있어요"}
+      ]
+    },
+    {
+      "id": "life_clarity", "group": "생명선", "title": "생명선은 얼마나 뚜렷한가요?",
+      "options": [
+        {"value": "clear", "label": "진하고 뚜렷해요"},
+        {"value": "faint", "label": "흐리거나 군데군데 옅어요"}
+      ]
+    },
+    {
+      "id": "fate", "group": "운명선", "title": "운명선(손목에서 중지로 올라가는 세로선)이 있나요?",
+      "hint": "운명선이 없는 사람도 많습니다. 없어도 나쁜 뜻이 아니에요.",
+      "options": [
+        {"value": "clear", "label": "뚜렷하게 있어요"},
+        {"value": "faint", "label": "흐리게 있어요"},
+        {"value": "none", "label": "잘 안 보여요"}
+      ]
+    },
+    {
+      "id": "sun", "group": "태양선", "title": "약지 아래로 올라가는 세로선(태양선)이 있나요?",
+      "hint": "감정선 위쪽에 짧게만 있어도 '있음'으로 고르세요.",
+      "options": [
+        {"value": "yes", "label": "있어요"},
+        {"value": "no", "label": "잘 안 보여요"}
+      ]
+    }
+  ],
+  "hand_types": {
+    "earth": {"label": "흙의 손", "nickname": "든든한 현실주의자", "summary": "네모난 손바닥과 짧은 손가락은 흙의 손입니다. 현실 감각이 좋고 맡은 일을 끝까지 책임지는 사람으로 봅니다.",
+      "texts": {
+        "personality": "실용적이고 믿음직해요. 말보다 행동으로 보여 주는 편입니다.",
+        "love": "천천히 깊어지는 관계를 좋아해요. 한번 마음을 주면 오래 갑니다.",
+        "career": "손으로 만들고 눈으로 확인할 수 있는 일에서 강점을 보입니다."
+      }},
+    "air": {"label": "공기의 손", "nickname": "호기심 많은 분석가", "summary": "네모난 손바닥에 긴 손가락은 공기의 손입니다. 생각과 말이 빠르고 새로운 지식에 끌리는 타입으로 봅니다.",
+      "texts": {
+        "personality": "호기심이 많고 분석적이에요. 대화하면서 생각이 정리되는 편입니다.",
+        "love": "말이 잘 통하는 사람에게 끌려요. 대화가 곧 애정 표현입니다.",
+        "career": "글쓰기, 기획, 연구처럼 생각을 다루는 일과 잘 맞습니다."
+      }},
+    "fire": {"label": "불의 손", "nickname": "열정적인 개척자", "summary": "길쭉한 손바닥에 짧은 손가락은 불의 손입니다. 에너지가 넘치고 먼저 움직이는 리더형으로 봅니다.",
+      "texts": {
+        "personality": "열정적이고 자신감이 있어요. 하고 싶은 일은 일단 시작하고 봅니다.",
+        "love": "좋아하면 솔직하게 표현하는 편이에요. 함께 새로운 걸 해 보는 연애를 즐깁니다.",
+        "career": "변화가 많고 주도권을 쥘 수 있는 환경에서 빛납니다."
+      }},
+    "water": {"label": "물의 손", "nickname": "섬세한 공감가", "summary": "길쭉한 손바닥에 긴 손가락은 물의 손입니다. 감수성이 풍부하고 사람의 마음을 잘 읽는 타입으로 봅니다.",
+      "texts": {
+        "personality": "섬세하고 직관이 좋아요. 분위기와 감정을 빨리 알아챕니다.",
+        "love": "상대의 마음을 잘 헤아려요. 다만 내 마음도 챙기는 연습이 필요합니다.",
+        "career": "예술, 디자인, 상담처럼 감성과 공감이 필요한 일과 잘 맞습니다."
+      }}
+  },
+  "features": {
+    "simian": {
+      "yes": {"observe": "두뇌선과 감정선이 한 줄로 합쳐진 막쥔손금이에요.",
+        "texts": {
+          "personality": "머리와 마음이 한 방향으로 움직이는 몰입형이에요. 한번 꽂히면 끝까지 파고듭니다.",
+          "career": "목표가 정해지면 누구보다 강하게 밀어붙여요. 쉬어 가는 타이밍을 정해 두면 더 좋습니다."
+        }, "tag": "몰입형"}
+    },
+    "heart_end": {
+      "index": {"observe": "감정선이 검지 아래까지 올라가요.",
+        "texts": {"love": "애정이 풍부하고 가까운 사람을 아끼는 타입이에요. 마음을 표현하는 데 망설임이 적습니다."}, "tag": "다정함"},
+      "between": {"observe": "감정선이 검지와 중지 사이에서 끝나요.",
+        "texts": {"love": "이성과 감성의 균형이 좋아요. 설렘도 현실도 함께 챙기는 연애를 합니다."}, "tag": "균형감"},
+      "middle": {"observe": "감정선이 중지 아래에서 끝나요.",
+        "texts": {"love": "감정 표현이 솔직하고 현실적이에요. 내 마음이 무엇을 원하는지 잘 압니다."}, "tag": "솔직함"}
+    },
+    "heart_shape": {
+      "curved": {"observe": "감정선이 위로 부드럽게 휘어 있어요.",
+        "texts": {"love": "감정 표현이 따뜻하고 로맨스를 소중히 여겨요.", "personality": "사람을 대할 때 부드럽고 정이 많습니다."}},
+      "straight": {"observe": "감정선이 거의 일자로 뻗어 있어요.",
+        "texts": {"love": "좋고 싫음이 분명하고 돌려 말하지 않아요. 믿을 수 있는 연인입니다.", "personality": "감정보다 할 일을 먼저 챙기는 편이에요."}}
+    },
+    "head_length": {
+      "long": {"observe": "두뇌선이 약지 아래를 지나 길게 뻗어 있어요.",
+        "texts": {"personality": "생각이 깊고 관심 분야가 넓어요. 충분히 납득한 뒤에 움직입니다.", "career": "긴 호흡으로 계획을 세우는 일에 강점이 있어요."}, "tag": "사려 깊음"},
+      "short": {"observe": "두뇌선이 약지 아래까지 오지 않아요.",
+        "texts": {"personality": "판단이 빠르고 직접 해 보며 배우는 실전형이에요.", "career": "현장에서 바로 결과가 보이는 일에서 실력을 발휘합니다."}, "tag": "실행력"}
+    },
+    "head_shape": {
+      "straight": {"observe": "두뇌선이 곧게 가로질러요.",
+        "texts": {"personality": "논리적이고 현실적으로 생각해요. 근거가 있어야 마음이 놓입니다.", "money": "숫자와 계획으로 돈을 관리하는 편이에요. 꾸준한 저축이 잘 맞습니다."}},
+      "curved": {"observe": "두뇌선이 손목 쪽으로 휘어 있어요.",
+        "texts": {"personality": "상상력과 창의력이 풍부해요. 직관을 믿을 때 좋은 아이디어가 나옵니다.", "money": "아이디어와 재능이 수입으로 이어지는 타입이에요. 지출은 한 번 더 점검하세요."}}
+    },
+    "head_start": {
+      "joined": {"observe": "두뇌선이 생명선과 붙어서 시작해요.",
+        "texts": {"personality": "신중하고 조심성이 있어요. 돌다리도 두드려 보고 건넙니다.", "career": "안정적인 환경에서 실력을 차근차근 쌓을 때 크게 성장합니다."}},
+      "separate": {"observe": "두뇌선이 생명선과 떨어져서 시작해요.",
+        "texts": {"personality": "대담하고 독립적이에요. 남이 안 가 본 길에도 먼저 발을 내딛습니다.", "career": "창업, 프리랜서처럼 자기 방식대로 일할 수 있는 길과 잘 맞습니다."}, "tag": "독립심"}
+    },
+    "head_fork": {
+      "yes": {"observe": "두뇌선 끝이 두 갈래로 갈라져 있어요(작가의 포크).",
+        "texts": {"career": "말하기와 글쓰기에 재능이 있어요. 표현하는 일에서 기회가 옵니다."}, "tag": "표현력"}
+    },
+    "life_arc": {
+      "wide": {"observe": "생명선이 손바닥 가운데까지 크게 휘어 있어요.",
+        "texts": {"energy": "활동 범위가 넓고 에너지가 넉넉한 편이에요. 몸을 움직이는 취미가 잘 맞습니다."}},
+      "narrow": {"observe": "생명선이 엄지 쪽에 바짝 붙어 있어요.",
+        "texts": {"energy": "에너지를 아껴 쓰는 타입이에요. 충분히 쉬어야 실력이 나옵니다."}}
+    },
+    "life_clarity": {
+      "clear": {"observe": "생명선이 진하고 뚜렷해요.",
+        "texts": {"energy": "회복력이 좋은 편이에요. 지쳐도 금방 다시 일어섭니다."}},
+      "faint": {"observe": "생명선이 흐리거나 군데군데 옅어요.",
+        "texts": {"energy": "요즘 피로가 쌓였을 수 있어요. 손금은 생활에 따라 변하니 잠과 휴식부터 챙겨 보세요."}}
+    },
+    "fate": {
+      "clear": {"observe": "운명선이 뚜렷하게 보여요.",
+        "texts": {"career": "목표를 정하면 꾸준히 밀고 나가는 힘이 있어요. 스스로 길을 만들어 가는 타입입니다."}, "tag": "뚝심"},
+      "faint": {"observe": "운명선이 흐리게 보여요.",
+        "texts": {"career": "주변과 협력하며 함께 성장하는 타입이에요. 좋은 동료가 곧 기회가 됩니다."}},
+      "none": {"observe": "운명선이 잘 보이지 않아요.",
+        "texts": {"career": "정해진 길에 묶이지 않는 자유로운 타입이에요. 여러 길을 시도하며 나만의 경로를 만듭니다."}, "tag": "자유로움"}
+    },
+    "sun": {
+      "yes": {"observe": "약지 아래로 올라가는 태양선이 보여요.",
+        "texts": {"money": "재능이 인정받고 그것이 재물로 이어지는 흐름이에요. 나를 돕는 사람이 많습니다.", "career": "주목받는 자리에서 더 잘하는 타입이에요."}, "tag": "인기운"},
+      "no": {"observe": "태양선은 뚜렷하지 않아요.",
+        "texts": {"money": "큰 한 방보다 꾸준히 쌓는 재물운이에요. 작은 성취를 기록하면 흐름이 좋아집니다."}}
+    }
+  },
+  "indices": [
+    {"id": "emotion", "label": "감성", "left": "이성", "base": 50,
+      "add": {"heart_shape:curved": 18, "heart_shape:straight": -12, "head_shape:curved": 15, "head_shape:straight": -15, "hand:water": 15, "hand:air": -8, "hand:earth": -5}},
+    {"id": "bold", "label": "대담", "left": "신중", "base": 50,
+      "add": {"head_start:separate": 25, "head_start:joined": -15, "life_arc:wide": 12, "life_arc:narrow": -8, "hand:fire": 15, "hand:earth": -10, "simian:yes": 15}},
+    {"id": "express", "label": "표현", "left": "절제", "base": 50,
+      "add": {"heart_end:index": 15, "heart_end:between": 5, "heart_end:middle": -5, "heart_shape:curved": 10, "head_fork:yes": 15, "sun:yes": 10, "hand:air": 10, "hand:fire": 5}},
+    {"id": "drive", "label": "추진", "left": "여유", "base": 50,
+      "add": {"fate:clear": 20, "fate:faint": 5, "life_clarity:clear": 10, "life_clarity:faint": -10, "hand:fire": 15, "hand:earth": 8, "head_length:short": 8, "simian:yes": 15}}
+  ],
+  "daily_words": [
+    "오늘은 먼저 연락해 보세요. 생각보다 반가워할 거예요.",
+    "미뤄 둔 작은 일 하나만 끝내도 하루가 가벼워져요.",
+    "계획보다 직감을 믿어도 좋은 날이에요.",
+    "잘한 일 세 가지를 적어 보세요. 손금보다 정확한 응원이 됩니다.",
+    "새로운 길로 걸어 보세요. 작은 우연이 기다리고 있어요.",
+    "오늘은 듣는 쪽이 되어 보세요. 좋은 힌트를 얻습니다.",
+    "물 한 잔과 스트레칭으로 시작하면 운이 따라와요."
+  ]
+}
